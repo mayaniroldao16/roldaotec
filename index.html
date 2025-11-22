@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Roldão Tecnologia | Segurança Eletrônica</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Roldão Tecnologia - Soluções em segurança eletrônica, CFTV, alarmes, controle de acesso e redes.">
+  <meta name="description" content="Roldão Tecnologia - Soluções em segurança eletrônica, CFTV, alarmes, controle de acesso e redes em Nova Mutum-MT.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,7 +17,6 @@
       --accent: #ff2525;        /* vermelho da logo */
       --text: #f5f5f5;
       --text-soft: #b3b3b3;
-      --danger: #ff2525;
       --radius-lg: 18px;
       --radius-full: 999px;
       --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.7);
@@ -56,6 +55,8 @@
       padding: 0 1.5rem;
     }
 
+    /* CABEÇALHO */
+
     header {
       position: sticky;
       top: 0;
@@ -69,7 +70,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.9rem 0;
+      padding: 0.6rem 0;
       gap: 1.5rem;
     }
 
@@ -79,25 +80,10 @@
       gap: 0.75rem;
     }
 
+    /* logo maior */
     .logo img {
-      height: 38px;
+      height: 64px;
       width: auto;
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-text strong {
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .logo-text small {
-      font-size: 0.72rem;
-      color: var(--text-soft);
     }
 
     .nav-links {
@@ -191,7 +177,7 @@
       transform: translateY(-1px);
     }
 
-    /* Hero */
+    /* HERO */
 
     .hero {
       padding: 4.2rem 0 3.5rem;
@@ -305,7 +291,7 @@
       color: var(--accent);
     }
 
-    /* Seções */
+    /* SEÇÕES GENÉRICAS */
 
     section {
       padding: 2rem 0 2.5rem;
@@ -323,7 +309,7 @@
       max-width: 34rem;
     }
 
-    /* Serviços */
+    /* SERVIÇOS */
 
     .services-grid {
       display: grid;
@@ -398,7 +384,7 @@
       color: var(--text-soft);
     }
 
-    /* Sobre */
+    /* SOBRE */
 
     .about-grid {
       display: grid;
@@ -455,7 +441,7 @@
       color: var(--text-soft);
     }
 
-    /* Diferenciais */
+    /* DIFERENCIAIS */
 
     .differentials {
       background: radial-gradient(circle at top, rgba(255, 37, 37, 0.18), #000000);
@@ -479,7 +465,7 @@
       color: var(--text-soft);
     }
 
-    /* Contato */
+    /* CONTATO */
 
     .contact-grid {
       display: grid;
@@ -587,7 +573,7 @@
       opacity: 0.85;
     }
 
-    /* Rodapé */
+    /* RODAPÉ */
 
     footer {
       padding: 1.7rem 0 2rem;
@@ -619,7 +605,7 @@
       opacity: 1;
     }
 
-    /* WhatsApp flutuante */
+    /* WHATSAPP FLUTUANTE */
 
     .whatsapp-float {
       position: fixed;
@@ -646,7 +632,7 @@
       transform: translateY(-2px);
     }
 
-    /* Responsivo */
+    /* RESPONSIVO */
 
     @media (max-width: 960px) {
       .about-grid,
@@ -701,15 +687,12 @@
   </style>
 </head>
 <body>
-  <!-- Navegação -->
+  <!-- CABEÇALHO -->
   <header>
     <div class="container nav">
       <div class="logo">
+        <!-- garante que o nome do arquivo bate com o do repositório -->
         <img src="logo-roldao-tecnologia.png" alt="Roldão Tecnologia - Segurança Eletrônica">
-        <div class="logo-text">
-          <strong>ROLDÃO TECNOLOGIA</strong>
-          <small>Segurança eletrônica e redes</small>
-        </div>
       </div>
 
       <nav class="nav-links">
@@ -731,7 +714,7 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- HERO -->
     <section id="inicio" class="hero">
       <div class="container hero-grid">
         <div>
@@ -778,7 +761,7 @@
       </div>
     </section>
 
-    <!-- Serviços -->
+    <!-- SERVIÇOS -->
     <section id="servicos">
       <div class="container">
         <h2>Soluções em segurança eletrônica</h2>
@@ -863,7 +846,7 @@
       </div>
     </section>
 
-    <!-- Sobre -->
+    <!-- SOBRE -->
     <section id="sobre">
       <div class="container about-grid">
         <div>
@@ -900,7 +883,7 @@
       </div>
     </section>
 
-    <!-- Diferenciais -->
+    <!-- DIFERENCIAIS -->
     <section id="diferenciais" class="differentials">
       <div class="container">
         <h2>Por que escolher a Roldão Tecnologia?</h2>
@@ -918,7 +901,7 @@
       </div>
     </section>
 
-    <!-- Contato -->
+    <!-- CONTATO -->
     <section id="contato">
       <div class="container contact-grid">
         <div class="contact-card">
@@ -972,7 +955,7 @@
     </section>
   </main>
 
-  <!-- Rodapé -->
+  <!-- RODAPÉ -->
   <footer>
     <div class="container footer-grid">
       <p>© <span id="year"></span> Roldão Tecnologia — Todos os direitos reservados.</p>
@@ -984,7 +967,7 @@
     </div>
   </footer>
 
-  <!-- WhatsApp flutuante (link principal no número 9937-7075) -->
+  <!-- WHATSAPP FLUTUANTE -->
   <div class="whatsapp-float">
     <a href="https://wa.me/5565999377075" target="_blank" aria-label="Falar com a Roldão Tecnologia no WhatsApp">✆</a>
   </div>
