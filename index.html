@@ -81,7 +81,7 @@
     }
 
     .logo img {
-      height: 64px;
+      height: 110px; /* logo maior */
       width: auto;
     }
 
@@ -229,48 +229,7 @@
       font-size: 0.96rem;
       color: var(--text-soft);
       max-width: 36rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .hero-highlight-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      margin-bottom: 1.4rem;
-      font-size: 0.86rem;
-    }
-
-    .hero-highlight {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.75rem;
-      border-radius: var(--radius-full);
-      background: #101010;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-    }
-
-    .hero-highlight span {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(255, 70, 70, 0.9);
-    }
-
-    .hero-contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      font-size: 0.86rem;
-      color: var(--text-soft);
       margin-bottom: 1.8rem;
-    }
-
-    .hero-contacts strong {
-      color: #ffffff;
-      font-weight: 500;
     }
 
     .hero-actions {
@@ -737,6 +696,10 @@
         bottom: 1rem;
         right: 1rem;
       }
+
+      .logo img {
+        height: 80px; /* menor no celular */
+      }
     }
   </style>
 </head>
@@ -786,23 +749,6 @@
           <p class="hero-subtitle">
             Soluções em CFTV, alarmes, controle de acesso e redes estruturadas para proteger o que é mais importante em ambientes residenciais, prediais, comerciais e rurais.
           </p>
-
-          <div class="hero-highlight-row">
-            <div class="hero-highlight">
-              <span></span>
-              Empresa familiar com mais de 15 anos de experiência
-            </div>
-            <div class="hero-highlight">
-              <span></span>
-              Projetos personalizados para cada cliente
-            </div>
-          </div>
-
-          <div class="hero-contacts">
-            <p><strong>Telefones / WhatsApp:</strong> (65) 9 9937-7075 | (65) 9 9624-1313</p>
-            <p><strong>E-mail:</strong> roldaotec@gmail.com</p>
-            <p><strong>Endereço:</strong> Av Mutum, 839W, Centro — Nova Mutum/MT, Brasil — CEP 78450-000</p>
-          </div>
 
           <div class="hero-actions">
             <a href="#contato" class="btn btn-primary">Quero um orçamento agora</a>
