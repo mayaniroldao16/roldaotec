@@ -55,31 +55,6 @@
       padding: 0 1.5rem;
     }
 
-    /* VÍDEO DE FUNDO */
-
-    .video-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.18) contrast(1.15) saturate(1.05);
-    }
-
-    .video-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.68);
-      pointer-events: none;
-    }
-
     /* CABEÇALHO */
 
     header {
@@ -106,7 +81,7 @@
     }
 
     .logo img {
-      height: 130px; /* AUMENTEI AINDA MAIS A LOGO */
+      height: 130px; /* logo maior */
       width: auto;
     }
 
@@ -489,6 +464,47 @@
       color: var(--text-soft);
     }
 
+    /* SEÇÃO DO VÍDEO */
+
+    #video {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      background: radial-gradient(circle at top, rgba(255, 37, 37, 0.12), #000000);
+    }
+
+    .video-wrapper {
+      border-radius: var(--radius-lg);
+      background: #050505;
+      border: var(--border-soft);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .video-wrapper h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .video-wrapper p {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .video-frame {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #000;
+    }
+
+    .video-frame video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* CONTATO */
 
     .contact-grid {
@@ -713,20 +729,12 @@
       }
 
       .logo img {
-        height: 90px; /* LOGO MENOR NO CELULAR */
+        height: 90px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- VÍDEO DE FUNDO -->
-  <div class="video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="bg-roldao.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo em background.
-    </video>
-  </div>
-
   <!-- CABEÇALHO -->
   <header>
     <div class="container nav">
@@ -740,10 +748,10 @@
         <a href="#sobre">Sobre</a>
         <a href="#portfolio">Obras</a>
         <a href="#diferenciais">Diferenciais</a>
+        <a href="#video">Vídeo</a>
         <a href="#contato">Contato</a>
       </nav>
 
-      <!-- AQUI TIREI O TEXTO 'ATENDIMENTO ESPECIALIZADO' E DEIXEI SÓ O BOTÃO -->
       <div class="nav-cta">
         <a href="#contato" class="btn btn-primary">
           Solicitar orçamento
@@ -966,6 +974,32 @@
       </div>
     </section>
 
+    <!-- VÍDEO FIXO NO FINAL DA PÁGINA -->
+    <section id="video">
+      <div class="container">
+        <div class="video-wrapper">
+          <h3>Veja um pouco do nosso trabalho em ação</h3>
+          <p>
+            Assista ao vídeo institucional da Roldão Tecnologia e conheça melhor como trabalhamos em campo,
+            nas instalações e na entrega dos sistemas de segurança.
+          </p>
+
+          <div class="video-frame">
+            <video
+              id="video-institucional"
+              muted
+              playsinline
+              preload="metadata"
+              controls
+            >
+              <source src="bg-roldao.mp4" type="video/mp4">
+              Seu navegador não suporta o formato de vídeo.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTATO -->
     <section id="contato">
       <div class="container contact-grid">
@@ -1051,7 +1085,30 @@
   </div>
 
   <script>
+    // ano no rodapé
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // vídeo só toca quando a seção estiver visível
+    const video = document.getElementById("video-institucional");
+
+    if (video && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, {
+        threshold: 0.4  // ~40% visível
+      });
+
+      observer.observe(video);
+    } else if (video) {
+      // fallback simples: tenta dar play direto
+      video.play().catch(() => {});
+    }
   </script>
 </body>
 </html>
