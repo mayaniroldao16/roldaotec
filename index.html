@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roldão Tecnologia | Segurança Eletrônica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Roldão Tecnologia - Soluções completas em segurança eletrônica, CFTV, alarmes, controle de acesso e redes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #050814;
+      --bg-card: #0c1020;
+      --primary: #1d8ff2;
+      --primary-soft: rgba(29, 143, 242, 0.15);
+      --accent: #f2b41d;
+      --text: #f5f5f5;
+      --text-soft: #b4bfd8;
+      --danger: #ff4b5c;
+      --radius-lg: 18px;
+      --radius-full: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --border-soft: 1px solid rgba(255, 255, 255, 0.06);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #101935 0, #050814 55%, #02030a 100%);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout base */
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5, 8, 20, 0.97), rgba(5, 8, 20, 0.8), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #e4f2ff 22%, #1d8ff2 55%, #050814 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-icon::before {
+      content: "";
+      position: absolute;
+      inset: 22%;
+      border-radius: 8px;
+      border: 2px solid rgba(5, 8, 20, 0.6);
+    }
+
+    .logo-icon span {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text strong {
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .logo-text small {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.4rem;
+      border-radius: 999px;
+      color: var(--text-soft);
+      position: relative;
+      transition: color 0.2s ease, background 0.2s ease, transform 0.18s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+      transform: translateX(-50%);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.02);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:hover::after {
+      width: 70%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-24h {
+      font-size: 0.7rem;
+      padding: 0.28rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(76, 255, 171, 0.3);
+      background: radial-gradient(circle at top, rgba(76, 255, 171, 0.25), transparent 55%);
+      color: #cafff0;
+      white-space: nowrap;
+    }
+
+    .btn {
+      border-radius: var(--radius-full);
+      padding: 0.45rem 1.35rem;
+      border: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #050814;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-soft);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 4.2rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: rgba(12, 16, 32, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-kicker span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #ffcf71 30%, #ff4b5c 60%, #ff005c 100%);
+      box-shadow: 0 0 14px rgba(255, 112, 112, 0.9);
+    }
+
+    .hero-kicker strong {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.19em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4vw, 3rem);
+      line-height: 1.08;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+      max-width: 36rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-highlight-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1.4rem;
+      font-size: 0.86rem;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-full);
+      background: rgba(20, 32, 70, 0.85);
+      border: 1px solid rgba(93, 171, 255, 0.4);
+    }
+
+    .hero-highlight span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--primary);
+      box-shadow: 0 0 12px rgba(29, 143, 242, 0.9);
+    }
+
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-contacts strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-actions .note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      max-width: 14rem;
+    }
+
+    .hero-actions .note span {
+      color: var(--accent);
+    }
+
+    /* Hero visual */
+
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+    }
+
+    .hero-monitor {
+      position: relative;
+      border-radius: 24px;
+      background: radial-gradient(circle at top, #1a274a 0, #050814 55%);
+      border: var(--border-soft);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .monitor-frame {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.75rem;
+      background: radial-gradient(circle at top, #18213b 0, #050814 50%, #02030a 100%);
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .cam-feed {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.15) 0, rgba(255, 255, 255, 0.02) 35%, #02030a 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.45rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .cam-tag {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cam-tag span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #41e07b;
+      box-shadow: 0 0 7px rgba(65, 224, 123, 0.9);
+    }
+
+    .cam-view {
+      flex: 1;
+      border-radius: 9px;
+      background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 45%), linear-gradient(120deg, rgba(93, 171, 255, 0.3), rgba(0, 0, 0, 0.9));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cam-view::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(transparent 0 6px, rgba(0, 0, 0, 0.7) 6px 7px);
+      mix-blend-mode: soft-light;
+      opacity: 0.6;
+    }
+
+    .cam-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.64rem;
+      color: var(--text-soft);
+    }
+
+    .small-badge {
+      font-size: 0.62rem;
+      padding: 0.12rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(3, 194, 252, 0.12);
+      border: 1px solid rgba(3, 194, 252, 0.6);
+      color: #a9efff;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -0.8rem;
+      right: -0.3rem;
+      width: 210px;
+      border-radius: 18px;
+      padding: 0.8rem 0.9rem;
+      background: radial-gradient(circle at top left, rgba(76, 255, 171, 0.3), rgba(5, 8, 20, 0.95));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #eaffe9;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.78rem;
+    }
+
+    .hero-floating-card strong {
+      display: block;
+      font-size: 0.82rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-floating-card .meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.68rem;
+      opacity: 0.9;
+    }
+
+    .hero-floating-card .alert {
+      margin-top: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.7rem;
+    }
+
+    .hero-floating-card .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--danger);
+      box-shadow: 0 0 11px rgba(255, 75, 92, 0.9);
+    }
+
+    /* Seções genéricas */
+
+    section {
+      padding: 2rem 0 2.5rem;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    section p.section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 1.6rem;
+      max-width: 34rem;
+    }
+
+    /* Serviços */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      border-radius: var(--radius-lg);
+      background: rgba(5, 8, 20, 0.85);
+      border: var(--border-soft);
+      padding: 1rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(29, 143, 242, 0.12), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.3), rgba(5, 8, 20, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .service-text {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      flex: 1;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
+    }
+
+    .service-tags span {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-soft);
+    }
+
+    /* Sobre */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .about-list li::before {
+      content: "▸";
+      color: var(--primary);
+      margin-top: 0.08rem;
+      font-size: 0.8rem;
+    }
+
+    .about-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .metric-card {
+      border-radius: 14px;
+      background: rgba(10, 14, 32, 0.96);
+      border: var(--border-soft);
+      padding: 0.75rem;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .metric-card strong {
+      font-size: 1.1rem;
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* Diferenciais */
+
+    .differentials {
+      background: radial-gradient(circle at top, rgba(29, 143, 242, 0.18), rgba(5, 8, 20, 0.98));
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(5, 8, 20, 0.85);
+      color: var(--text-soft);
+    }
+
+    /* Contato */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: rgba(5, 8, 20, 0.9);
+      border: var(--border-soft);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-details {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-details p {
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-details strong {
+      color: #ffffff;
+    }
+
+    form {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: rgba(3, 7, 18, 0.9);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.55rem 0.7rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(180, 191, 216, 0.65);
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(29, 143, 242, 0.8);
+      box-shadow: 0 0 0 1px rgba(29, 143, 242, 0.55);
+      background: rgba(8, 12, 32, 0.95);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.4rem;
+    }
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      background: rgba(4, 9, 24, 0.96);
+      border: var(--border-soft);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .map-placeholder {
+      margin-top: 0.6rem;
+      border-radius: 12px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+      padding: 1.8rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* Rodapé */
+
+    footer {
+      padding: 1.7rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .footer-links a {
+      opacity: 0.85;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* Botão WhatsApp flutuante */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.4rem;
+      right: 1.4rem;
+      z-index: 40;
+    }
+
+    .whatsapp-float a {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #4eff9a, #128c7e);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      color: #ffffff;
+      font-size: 1.7rem;
+    }
+
+    .whatsapp-float a:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Responsivo */
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-visual {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .hero-floating-card {
+        right: 0.5rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        padding: 0.75rem 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .note {
+        max-width: none;
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .whatsapp-float {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegação -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-icon">
+          <span>RT</span>
+        </div>
+        <div class="logo-text">
+          <strong>Roldão Tecnologia</strong>
+          <small>Segurança Eletrônica &amp; Redes</small>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="badge-24h">Monitoramento 24h</div>
+        <a href="#contato" class="btn btn-primary">
+          Solicitar orçamento
+          <span>➜</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span></span>
+            <strong>segurança inteligente</strong>
+            <span>para empresas e residências</span>
+          </div>
+
+          <h1 class="hero-title">
+            Segurança eletrônica de alto nível com a
+            <span>Roldão Tecnologia</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            Projetamos, instalamos e monitoramos sistemas de CFTV, alarmes, controle de acesso e redes estruturadas para proteger o que é mais importante pra você.
+          </p>
+
+          <div class="hero-highlight-row">
+            <div class="hero-highlight">
+              <span></span>
+              Instalação profissional e suporte contínuo
+            </div>
+            <div class="hero-highlight">
+              <span></span>
+              Projetos personalizados para cada cliente
+            </div>
+          </div>
+
+          <div class="hero-contacts">
+            <p><strong>WhatsApp:</strong> (00) 00000-0000</p>
+            <p><strong>E-mail:</strong> contato@roldaotecnologia.com.br</p>
+            <p><strong>Atendimento:</strong> Segunda a sábado — 08h às 18h</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">Quero um orçamento agora</a>
+            <a href="#servicos" class="btn btn-outline">Ver soluções de segurança</a>
+            <p class="note">
+              <span>Resposta rápida:</span> descreva seu projeto no formulário e retornamos com proposta personalizada.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-monitor">
+            <div class="monitor-frame">
+              <div class="cam-feed">
+                <div class="cam-tag">
+                  <span></span>
+                  <span>Loja - Acesso Principal</span>
+                </div>
+                <div class="cam-view"></div>
+                <div class="cam-bottom">
+                  <span>ON-LINE • HD</span>
+                  <span>14 câmeras</span>
+                </div>
+              </div>
+              <div class="cam-feed">
+                <div class="cam-tag">
+                  <span></span>
+                  <span>Estoque &amp; Docas</span>
+                </div>
+                <div class="cam-view"></div>
+                <div class="cam-bottom">
+                  <span>Detecção de movimento</span>
+                  <span class="small-badge">Alertas em tempo real</span>
+                </div>
+              </div>
+              <div class="cam-feed">
+                <div class="cam-tag">
+                  <span></span>
+                  <span>Residencial</span>
+                </div>
+                <div class="cam-view"></div>
+                <div class="cam-bottom">
+                  <span>Acesso via app</span>
+                  <span>Usuários: 4</span>
+                </div>
+              </div>
+              <div class="cam-feed">
+                <div class="cam-tag">
+                  <span></span>
+                  <span>Perímetro Externo</span>
+                </div>
+                <div class="cam-view"></div>
+                <div class="cam-bottom">
+                  <span>Visão noturna</span>
+                  <span>Gravação 30 dias</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-floating-card">
+              <strong>Alerta em tempo real</strong>
+              <div class="meta">
+                <span>Detecção em área restrita</span>
+                <span>23:41</span>
+              </div>
+              <div class="alert">
+                <div class="dot"></div>
+                <span>Atendimento imediato da equipe Roldão Tecnologia.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+      <div class="container">
+        <h2>Soluções em segurança eletrônica</h2>
+        <p class="section-subtitle">
+          Oferecemos sistemas completos, integrados e sob medida para sua casa, empresa, indústria ou condomínio.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">📹</div>
+            <h3 class="service-title">CFTV &amp; Monitoramento</h3>
+            <p class="service-text">
+              Projetamos e instalamos sistemas de câmeras IP ou analógicas, com gravação em NVR/DVR, acesso remoto via aplicativo e armazenamento em nuvem conforme a necessidade.
+            </p>
+            <div class="service-tags">
+              <span>Câmeras internas/externas</span>
+              <span>Full HD / 4K</span>
+              <span>Acesso pelo celular</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🚨</div>
+            <h3 class="service-title">Alarmes &amp; Sensores</h3>
+            <p class="service-text">
+              Sistemas de alarme com sensores de presença, abertura, barreiras infravermelho e sirenes. Integração com monitoramento 24h e comunicação imediata em caso de invasão.
+            </p>
+            <div class="service-tags">
+              <span>Sensores perimetrais</span>
+              <span>Monitoramento 24h</span>
+              <span>Aplicativo integrado</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🔐</div>
+            <h3 class="service-title">Controle de acesso</h3>
+            <p class="service-text">
+              Controle de entrada por biometria, senha, cartão ou reconhecimento facial, ideal para portarias, portões, cancelas, catracas e portas de acesso restrito.
+            </p>
+            <div class="service-tags">
+              <span>Biometria &amp; RFID</span>
+              <span>Portaria remota</span>
+              <span>Registro de usuários</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3 class="service-title">Redes &amp; Wi-Fi profissional</h3>
+            <p class="service-text">
+              Projeto e instalação de redes estruturadas, cabeamento, switches, roteadores e Wi-Fi de alta performance para suportar câmeras, sistemas e dispositivos conectados.
+            </p>
+            <div class="service-tags">
+              <span>Cabeamento estruturado</span>
+              <span>Switches gerenciáveis</span>
+              <span>Wi-Fi para empresas</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3 class="service-title">Segurança para empresas</h3>
+            <p class="service-text">
+              Soluções completas para comércios, escritórios, indústrias e agronegócio, com análise de risco, projeto técnico e implantação com responsabilidade.
+            </p>
+            <div class="service-tags">
+              <span>Comercial</span>
+              <span>Industrial</span>
+              <span>Agro</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">👨‍🔧</div>
+            <h3 class="service-title">Suporte &amp; Manutenção</h3>
+            <p class="service-text">
+              Planos de manutenção preventiva e corretiva, visitas técnicas, upgrades de sistemas antigos e acompanhamento próximo de cada cliente.
+            </p>
+            <div class="service-tags">
+              <span>Contratos mensais</span>
+              <span>Visita agendada</span>
+              <span>Suporte remoto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="container about-grid">
+        <div>
+          <h2>Sobre a Roldão Tecnologia</h2>
+          <p class="section-subtitle">
+            A Roldão Tecnologia nasceu com o propósito de levar tecnologia, segurança e tranquilidade para pessoas e empresas
+            que não abrem mão de cuidar bem do seu patrimônio.
+          </p>
+
+          <ul class="about-list">
+            <li>Atuação especializada em projetos de segurança eletrônica, redes e infraestrutura de TI.</li>
+            <li>Atendimento consultivo: entendemos a realidade do cliente antes de indicar qualquer solução.</li>
+            <li>Equipe técnica qualificada e em constante atualização com as melhores marcas do mercado.</li>
+            <li>Instalações limpas, organizadas e com foco em facilidade de uso no dia a dia.</li>
+          </ul>
+        </div>
+
+        <div class="about-metrics">
+          <div class="metric-card">
+            <strong>+5 anos</strong>
+            <span>de experiência em segurança eletrônica e redes</span>
+          </div>
+          <div class="metric-card">
+            <strong>+150</strong>
+            <span>projetos instalados entre residenciais e corporativos</span>
+          </div>
+          <div class="metric-card">
+            <strong>99%</strong>
+            <span>dos clientes voltariam a contratar a Roldão Tecnologia</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="differentials">
+      <div class="container">
+        <h2>Por que escolher a Roldão Tecnologia?</h2>
+        <p class="section-subtitle">
+          Mais do que instalar equipamentos, entregamos segurança com planejamento, tecnologia e proximidade no atendimento.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Projeto sob medida para cada ambiente</span>
+          <span class="pill">Equipamentos homologados e de alta qualidade</span>
+          <span class="pill">Orientação completa ao usuário</span>
+          <span class="pill">Suporte pós-instalação humanizado</span>
+          <span class="pill">Integração entre câmeras, alarmes e controle de acesso</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h3>Vamos conversar sobre o seu projeto?</h3>
+          <div class="contact-details">
+            <p><strong>Telefone / WhatsApp:</strong> (00) 00000-0000</p>
+            <p><strong>E-mail:</strong> contato@roldaotecnologia.com.br</p>
+            <p><strong>Endereço:</strong> Rua Exemplo, 123 - Bairro - Cidade/UF</p>
+          </div>
+
+          <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (Aqui você integra com seu backend ou serviço de e-mail)');">
+            <div class="form-row">
+              <div>
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" name="nome" placeholder="Seu nome completo" required>
+              </div>
+              <div>
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input id="telefone" type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+              </div>
+            </div>
+
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email" placeholder="seuemail@exemplo.com">
+
+            <label for="tipo">Tipo de atendimento</label>
+            <input id="tipo" type="text" name="tipo" placeholder="Residencial, comercial, condomínio, indústria...">
+
+            <label for="mensagem">Descreva sua necessidade</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre o imóvel, pontos que deseja monitorar, se já possui algum sistema instalado etc." required></textarea>
+
+            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            <p class="contact-note">
+              Responderemos o mais breve possível com uma proposta alinhada ao que você precisa.
+            </p>
+          </form>
+        </div>
+
+        <div class="map-card">
+          <h3>Atendemos sua região</h3>
+          <p>
+            Atendemos <strong>residências, comércios, escritórios, condomínios e indústrias</strong>.  
+            Ajuste aqui a cidade e região de atuação da Roldão Tecnologia.
+          </p>
+
+          <div class="map-placeholder">
+            🔎 Espaço reservado para inserir o mapa do Google Maps ou uma imagem da localização da empresa.<br><br>
+            Basta substituir esta área por um iframe do Google Maps quando o site estiver publicado.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Roldão Tecnologia — Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante (troque o link pelo número real) -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5500000000000" target="_blank" aria-label="Falar com a Roldão Tecnologia no WhatsApp">✆</a>
+  </div>
+
+  <script>
+    // Atualiza o ano do rodapé automaticamente
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
