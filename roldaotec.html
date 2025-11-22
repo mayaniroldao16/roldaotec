@@ -32,7 +32,6 @@
 
     body {
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      /* gradiente de backup caso o vídeo não carregue */
       background: radial-gradient(circle at top, #202020 0, #000000 55%, #000000 100%);
       color: var(--text);
       line-height: 1.5;
@@ -54,33 +53,6 @@
       max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 1.5rem;
-    }
-
-    /* VÍDEO DE FUNDO */
-
-    .video-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -2;          /* fica atrás de tudo */
-      overflow: hidden;
-      background: #000;     /* fallback */
-    }
-
-    .video-bg video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* escurece bastante o vídeo */
-      filter: brightness(0.18) contrast(1.15) saturate(1.05);
-    }
-
-    .video-bg::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      /* camada preta semi-transparente por cima do vídeo */
-      background: rgba(0, 0, 0, 0.68);
-      pointer-events: none;
     }
 
     /* CABEÇALHO */
@@ -732,14 +704,6 @@
   </style>
 </head>
 <body>
-  <!-- VÍDEO DE FUNDO -->
-  <div class="video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="bg-roldao.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo em background.
-    </video>
-  </div>
-
   <!-- CABEÇALHO -->
   <header>
     <div class="container nav">
