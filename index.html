@@ -80,7 +80,6 @@
       gap: 0.75rem;
     }
 
-    /* logo maior */
     .logo img {
       height: 64px;
       width: auto;
@@ -384,6 +383,57 @@
       color: var(--text-soft);
     }
 
+    /* PORTFÓLIO / OBRAS */
+
+    #portfolio {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      background: radial-gradient(circle at top, rgba(255, 37, 37, 0.1), #000000);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .portfolio-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: var(--border-soft);
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .portfolio-card-body {
+      padding: 0.8rem 1rem 1rem;
+    }
+
+    .portfolio-card-body h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .portfolio-card-body p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .portfolio-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-top: 1rem;
+    }
+
     /* SOBRE */
 
     .about-grid {
@@ -566,11 +616,7 @@
     .map-placeholder {
       margin-top: 0.6rem;
       border-radius: 12px;
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-      padding: 1.8rem 1rem;
-      text-align: center;
-      font-size: 0.8rem;
-      opacity: 0.85;
+      overflow: hidden;
     }
 
     /* RODAPÉ */
@@ -648,6 +694,10 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .nav-links {
         display: none;
       }
@@ -660,6 +710,10 @@
 
       .about-metrics {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .portfolio-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .nav {
@@ -691,7 +745,6 @@
   <header>
     <div class="container nav">
       <div class="logo">
-        <!-- garante que o nome do arquivo bate com o do repositório -->
         <img src="logo-roldao-tecnologia.png" alt="Roldão Tecnologia - Segurança Eletrônica">
       </div>
 
@@ -699,6 +752,7 @@
         <a href="#inicio">Início</a>
         <a href="#servicos">Serviços</a>
         <a href="#sobre">Sobre</a>
+        <a href="#portfolio">Obras</a>
         <a href="#diferenciais">Diferenciais</a>
         <a href="#contato">Contato</a>
       </nav>
@@ -883,6 +937,48 @@
       </div>
     </section>
 
+    <!-- OBRAS / PORTFÓLIO -->
+    <section id="portfolio">
+      <div class="container">
+        <h2>Obras executadas</h2>
+        <p class="section-subtitle">
+          Alguns projetos realizados pela Roldão Tecnologia em ambientes residenciais, comerciais e rurais.
+        </p>
+
+        <div class="portfolio-grid">
+          <figure class="portfolio-card">
+            <img src="obra-01.jpg" alt="Sistema de CFTV em residência">
+            <figcaption class="portfolio-card-body">
+              <h3>Residencial – Bairro Exemplo</h3>
+              <p>Instalação de câmeras CFTV, DVR e infraestrutura de rede.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-card">
+            <img src="obra-02.jpg" alt="Instalação de segurança em comércio">
+            <figcaption class="portfolio-card-body">
+              <h3>Comercial – Loja no Centro</h3>
+              <p>Projeto de segurança com câmeras, alarme e controle de acesso.</p>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-card">
+            <img src="obra-03.jpg" alt="Projeto de segurança em área rural">
+            <figcaption class="portfolio-card-body">
+              <h3>Rural – Propriedade em Nova Mutum</h3>
+              <p>Monitoramento de perímetro, acesso e áreas de maquinário.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <p class="portfolio-note">
+          Para atualizar as fotos, envie suas imagens para o repositório com os nomes
+          <strong>obra-01.jpg</strong>, <strong>obra-02.jpg</strong> e <strong>obra-03.jpg</strong>
+          (ou altere os nomes no código) e elas aparecerão automaticamente aqui.
+        </p>
+      </div>
+    </section>
+
     <!-- DIFERENCIAIS -->
     <section id="diferenciais" class="differentials">
       <div class="container">
@@ -941,15 +1037,28 @@
         </div>
 
         <div class="map-card">
-          <h3>Atendemos sua região</h3>
+          <h3>Como chegar</h3>
           <p>
-            Atendemos <strong>projetos residenciais, prediais, comerciais e rurais</strong> na região de Nova Mutum/MT e arredores.
+            Estamos em <strong>Nova Mutum/MT</strong>, na Av Mutum, 839W, Centro.
           </p>
 
           <div class="map-placeholder">
-            🔎 Espaço reservado para inserir o mapa do Google Maps com a localização:<br><br>
-            Av Mutum, 839W, Centro, Nova Mutum/MT, Brasil — CEP 78450-000.
+            <iframe
+              src="https://www.google.com/maps?q=Av+Mutum,+839W,+Centro,+Nova+Mutum,+MT,+Brasil&output=embed"
+              width="100%"
+              height="260"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
+
+          <p class="contact-note">
+            <a href="https://maps.app.goo.gl/S7FUCwS6nSaACwsX7" target="_blank" rel="noopener noreferrer">
+              Abrir no Google Maps
+            </a>
+          </p>
         </div>
       </div>
     </section>
