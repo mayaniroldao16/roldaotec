@@ -49,8 +49,6 @@
       display: block;
     }
 
-    /* Layout */
-
     .container {
       width: 100%;
       max-width: var(--max-width);
@@ -201,7 +199,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 1fr);
       gap: 2.5rem;
       align-items: center;
     }
@@ -278,8 +276,8 @@
 
     .hero-contacts {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
+      flex-direction: column;
+      gap: 0.35rem;
       font-size: 0.86rem;
       color: var(--text-soft);
       margin-bottom: 1.8rem;
@@ -307,142 +305,6 @@
       color: var(--accent);
     }
 
-    /* Hero visual */
-
-    .hero-visual {
-      position: relative;
-      min-height: 260px;
-    }
-
-    .hero-monitor {
-      position: relative;
-      border-radius: 24px;
-      background: radial-gradient(circle at top, #202020 0, #000000 55%);
-      border: var(--border-soft);
-      padding: 1rem;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-
-    .monitor-frame {
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.75rem;
-      background: radial-gradient(circle at top, #191919 0, #000000 50%, #000000 100%);
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem;
-    }
-
-    .cam-feed {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08) 0, rgba(255, 255, 255, 0.02) 35%, #000000 100%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.45rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .cam-tag {
-      font-size: 0.64rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-soft);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cam-tag span {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #00ff7b;
-      box-shadow: 0 0 7px rgba(0, 255, 123, 0.9);
-    }
-
-    .cam-view {
-      flex: 1;
-      border-radius: 9px;
-      background-image:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 45%),
-        linear-gradient(120deg, rgba(255, 37, 37, 0.35), rgba(0, 0, 0, 0.9));
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cam-view::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(transparent 0 6px, rgba(0, 0, 0, 0.7) 6px 7px);
-      mix-blend-mode: soft-light;
-      opacity: 0.6;
-    }
-
-    .cam-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.64rem;
-      color: var(--text-soft);
-    }
-
-    .small-badge {
-      font-size: 0.62rem;
-      padding: 0.12rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(255, 37, 37, 0.12);
-      border: 1px solid rgba(255, 37, 37, 0.7);
-      color: #ffd4d4;
-    }
-
-    .hero-floating-card {
-      position: absolute;
-      bottom: -0.8rem;
-      right: -0.3rem;
-      width: 210px;
-      border-radius: 18px;
-      padding: 0.8rem 0.9rem;
-      background: radial-gradient(circle at top left, rgba(255, 37, 37, 0.4), rgba(0, 0, 0, 0.98));
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      color: #ffeaea;
-      box-shadow: var(--shadow-soft);
-      font-size: 0.78rem;
-    }
-
-    .hero-floating-card strong {
-      display: block;
-      font-size: 0.82rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .hero-floating-card .meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.68rem;
-      opacity: 0.9;
-    }
-
-    .hero-floating-card .alert {
-      margin-top: 0.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.7rem;
-    }
-
-    .hero-floating-card .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--danger);
-      box-shadow: 0 0 11px rgba(255, 75, 92, 0.9);
-    }
-
     /* Seções */
 
     section {
@@ -454,3 +316,681 @@
       margin-bottom: 0.4rem;
     }
 
+    section p.section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 1.6rem;
+      max-width: 34rem;
+    }
+
+    /* Serviços */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: var(--border-soft);
+      padding: 1rem;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 37, 37, 0.18), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .service-text {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      flex: 1;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.35rem;
+    }
+
+    .service-tags span {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-soft);
+    }
+
+    /* Sobre */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .about-list li {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .about-list li::before {
+      content: "▸";
+      color: var(--accent);
+      margin-top: 0.08rem;
+      font-size: 0.8rem;
+    }
+
+    .about-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .metric-card {
+      border-radius: 14px;
+      background: #080808;
+      border: var(--border-soft);
+      padding: 0.75rem;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .metric-card strong {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* Diferenciais */
+
+    .differentials {
+      background: radial-gradient(circle at top, rgba(255, 37, 37, 0.18), #000000);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.9);
+      color: var(--text-soft);
+    }
+
+    /* Contato */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-lg);
+      background: #050505;
+      border: var(--border-soft);
+      padding: 1.2rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-details {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-details p {
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-details strong {
+      color: #ffffff;
+    }
+
+    form {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: #050505;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 0.55rem 0.7rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #777777;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(255, 37, 37, 0.8);
+      box-shadow: 0 0 0 1px rgba(255, 37, 37, 0.55);
+      background: #080808;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.4rem;
+    }
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      background: #050505;
+      border: var(--border-soft);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .map-placeholder {
+      margin-top: 0.6rem;
+      border-radius: 12px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      padding: 1.8rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    /* Rodapé */
+
+    footer {
+      padding: 1.7rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .footer-links a {
+      opacity: 0.85;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+
+    /* WhatsApp flutuante */
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.4rem;
+      right: 1.4rem;
+      z-index: 40;
+    }
+
+    .whatsapp-float a {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #4eff9a, #128c7e);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.7);
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      font-size: 1.7rem;
+    }
+
+    .whatsapp-float a:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Responsivo */
+
+    @media (max-width: 960px) {
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-metrics {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .nav {
+        padding: 0.75rem 0;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .note {
+        max-width: none;
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .whatsapp-float {
+        bottom: 1rem;
+        right: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegação -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <img src="logo-roldao-tecnologia.png" alt="Roldão Tecnologia - Segurança Eletrônica">
+        <div class="logo-text">
+          <strong>ROLDÃO TECNOLOGIA</strong>
+          <small>Segurança eletrônica e redes</small>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="nav-cta">
+        <div class="badge-24h">Atendimento especializado</div>
+        <a href="#contato" class="btn btn-primary">
+          Solicitar orçamento
+          <span>➜</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span class="dot"></span>
+            <strong>segurança eletrônica</strong>
+            <span>para cidade e campo</span>
+          </div>
+
+          <h1 class="hero-title">
+            Segurança profissional com a
+            <span>Roldão Tecnologia</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            Soluções em CFTV, alarmes, controle de acesso e redes estruturadas para proteger o que é mais importante em ambientes residenciais, prediais, comerciais e rurais.
+          </p>
+
+          <div class="hero-highlight-row">
+            <div class="hero-highlight">
+              <span></span>
+              Empresa familiar com mais de 15 anos de experiência
+            </div>
+            <div class="hero-highlight">
+              <span></span>
+              Projetos personalizados para cada cliente
+            </div>
+          </div>
+
+          <div class="hero-contacts">
+            <p><strong>Telefones / WhatsApp:</strong> (65) 9 9937-7075 | (65) 9 9624-1313</p>
+            <p><strong>E-mail:</strong> roldaotec@gmail.com</p>
+            <p><strong>Endereço:</strong> Av Mutum, 839W, Centro — Nova Mutum/MT, Brasil — CEP 78450-000</p>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">Quero um orçamento agora</a>
+            <a href="#servicos" class="btn btn-outline">Ver soluções de segurança</a>
+            <p class="note">
+              <span>Resposta rápida:</span> mande seu contato e retornamos com uma proposta sob medida.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+      <div class="container">
+        <h2>Soluções em segurança eletrônica</h2>
+        <p class="section-subtitle">
+          Sistemas completos e integrados para projetos residenciais, prediais, comerciais e rurais.
+        </p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">📹</div>
+            <h3 class="service-title">CFTV &amp; Vídeo</h3>
+            <p class="service-text">
+              Projeto e instalação de sistemas de câmeras, com gravação em alta definição e visualização prática para o dia a dia.
+            </p>
+            <div class="service-tags">
+              <span>Câmeras internas e externas</span>
+              <span>Full HD / 4K</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🚨</div>
+            <h3 class="service-title">Alarmes &amp; Sensores</h3>
+            <p class="service-text">
+              Sensores de presença, abertura e barreiras para proteção de perímetro, ambientes internos e pontos estratégicos.
+            </p>
+            <div class="service-tags">
+              <span>Perímetro protegido</span>
+              <span>Sirenes e avisos locais</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🔐</div>
+            <h3 class="service-title">Controle de acesso</h3>
+            <p class="service-text">
+              Soluções com senha, cartão, biometria ou reconhecimento facial para portas, portões e áreas restritas.
+            </p>
+            <div class="service-tags">
+              <span>Biometria &amp; RFID</span>
+              <span>Gestão de acessos</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3 class="service-title">Redes &amp; Infraestrutura</h3>
+            <p class="service-text">
+              Cabeamento estruturado, organização de racks e infraestrutura de rede para suportar sistemas de segurança e TI.
+            </p>
+            <div class="service-tags">
+              <span>Cabeamento estruturado</span>
+              <span>Organização de racks</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🏡</div>
+            <h3 class="service-title">Projetos sob medida</h3>
+            <p class="service-text">
+              Estudo do local e dimensionamento da solução ideal para residências, prédios, comércios, fazendas e chácaras.
+            </p>
+            <div class="service-tags">
+              <span>Residencial</span>
+              <span>Predial</span>
+              <span>Comercial e rural</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">👨‍🔧</div>
+            <h3 class="service-title">Suporte &amp; Manutenção</h3>
+            <p class="service-text">
+              Manutenção preventiva e corretiva, ajustes, melhorias e ampliação de sistemas existentes.
+            </p>
+            <div class="service-tags">
+              <span>Contratos de manutenção</span>
+              <span>Visitas técnicas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="container about-grid">
+        <div>
+          <h2>Sobre a Roldão Tecnologia</h2>
+          <p class="section-subtitle">
+            A Roldão Tecnologia é uma empresa familiar de segurança eletrônica, com mais de 15 anos de experiência no mercado.
+            Atuamos no desenvolvimento e execução de projetos residenciais, prediais, comerciais e rurais, sempre com foco em
+            soluções eficientes, seguras e sob medida para cada cliente. Nossa história é construída com base na confiança,
+            no atendimento próximo e na entrega de sistemas que realmente fazem a diferença no dia a dia de quem precisa
+            proteger seu patrimônio.
+          </p>
+
+          <ul class="about-list">
+            <li>Atendimento próximo e direto com o cliente, do projeto à instalação.</li>
+            <li>Experiência prática em diferentes tipos de imóveis: casas, prédios, comércios e áreas rurais.</li>
+            <li>Compromisso com organização, acabamento e fácil utilização dos sistemas.</li>
+          </ul>
+        </div>
+
+        <div class="about-metrics">
+          <div class="metric-card">
+            <strong>+15 anos</strong>
+            <span>de experiência em segurança eletrônica</span>
+          </div>
+          <div class="metric-card">
+            <strong>+150</strong>
+            <span>projetos instalados em diferentes segmentos</span>
+          </div>
+          <div class="metric-card">
+            <strong>Empresa familiar</strong>
+            <span>relacionamento de confiança e longo prazo</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="differentials">
+      <div class="container">
+        <h2>Por que escolher a Roldão Tecnologia?</h2>
+        <p class="section-subtitle">
+          Mais do que equipamentos, entregamos cuidado, experiência e compromisso com o resultado.
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Empresa familiar e atendimento humanizado</span>
+          <span class="pill">Mais de 15 anos de experiência</span>
+          <span class="pill">Projetos sob medida para cada imóvel</span>
+          <span class="pill">Instalação organizada e bem acabada</span>
+          <span class="pill">Soluções para cidade e área rural</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+      <div class="container contact-grid">
+        <div class="contact-card">
+          <h3>Vamos conversar sobre o seu projeto?</h3>
+          <div class="contact-details">
+            <p><strong>Telefones / WhatsApp:</strong> (65) 9 9937-7075 | (65) 9 9624-1313</p>
+            <p><strong>E-mail:</strong> roldaotec@gmail.com</p>
+            <p><strong>Endereço:</strong> Av Mutum, 839W, Centro — Nova Mutum/MT, Brasil — CEP 78450-000</p>
+          </div>
+
+          <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (Aqui você integra com seu backend ou serviço de e-mail)');">
+            <div class="form-row">
+              <div>
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" name="nome" placeholder="Seu nome completo" required>
+              </div>
+              <div>
+                <label for="telefone">Telefone / WhatsApp</label>
+                <input id="telefone" type="tel" name="telefone" placeholder="(65) 9 9937-7075" required>
+              </div>
+            </div>
+
+            <label for="email">E-mail</label>
+            <input id="email" type="email" name="email" placeholder="seuemail@exemplo.com">
+
+            <label for="tipo">Tipo de atendimento</label>
+            <input id="tipo" type="text" name="tipo" placeholder="Residencial, predial, comercial, rural...">
+
+            <label for="mensagem">Descreva sua necessidade</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Conte sobre o imóvel, pontos que deseja proteger e se já possui algum sistema instalado." required></textarea>
+
+            <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            <p class="contact-note">
+              Em breve entraremos em contato para entender melhor sua necessidade e montar a solução ideal.
+            </p>
+          </form>
+        </div>
+
+        <div class="map-card">
+          <h3>Atendemos sua região</h3>
+          <p>
+            Atendemos <strong>projetos residenciais, prediais, comerciais e rurais</strong> na região de Nova Mutum/MT e arredores.
+          </p>
+
+          <div class="map-placeholder">
+            🔎 Espaço reservado para inserir o mapa do Google Maps com a localização:<br><br>
+            Av Mutum, 839W, Centro, Nova Mutum/MT, Brasil — CEP 78450-000.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Roldão Tecnologia — Todos os direitos reservados.</p>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante (link principal no número 9937-7075) -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/5565999377075" target="_blank" aria-label="Falar com a Roldão Tecnologia no WhatsApp">✆</a>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
