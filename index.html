@@ -55,6 +55,31 @@
       padding: 0 1.5rem;
     }
 
+    /* VÍDEO DE FUNDO */
+
+    .video-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.18) contrast(1.15) saturate(1.05);
+    }
+
+    .video-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.68);
+      pointer-events: none;
+    }
+
     /* CABEÇALHO */
 
     header {
@@ -81,7 +106,7 @@
     }
 
     .logo img {
-      height: 110px; /* logo maior */
+      height: 130px; /* AUMENTEI AINDA MAIS A LOGO */
       width: auto;
     }
 
@@ -127,16 +152,6 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-    }
-
-    .badge-24h {
-      font-size: 0.7rem;
-      padding: 0.28rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 37, 37, 0.6);
-      background: radial-gradient(circle at top, rgba(255, 37, 37, 0.4), transparent 60%);
-      color: #ffeaea;
-      white-space: nowrap;
     }
 
     .btn {
@@ -698,12 +713,20 @@
       }
 
       .logo img {
-        height: 80px; /* menor no celular */
+        height: 90px; /* LOGO MENOR NO CELULAR */
       }
     }
   </style>
 </head>
 <body>
+  <!-- VÍDEO DE FUNDO -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="bg-roldao.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo em background.
+    </video>
+  </div>
+
   <!-- CABEÇALHO -->
   <header>
     <div class="container nav">
@@ -720,8 +743,8 @@
         <a href="#contato">Contato</a>
       </nav>
 
+      <!-- AQUI TIREI O TEXTO 'ATENDIMENTO ESPECIALIZADO' E DEIXEI SÓ O BOTÃO -->
       <div class="nav-cta">
-        <div class="badge-24h">Atendimento especializado</div>
         <a href="#contato" class="btn btn-primary">
           Solicitar orçamento
           <span>➜</span>
