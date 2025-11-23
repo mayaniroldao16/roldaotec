@@ -81,7 +81,7 @@
     }
 
     .logo img {
-      height: 130px; /* logo maior */
+      height: 130px; /* logo grande */
       width: auto;
     }
 
@@ -987,7 +987,6 @@
           <div class="video-frame">
             <video
               id="video-institucional"
-              autoplay
               muted
               loop
               playsinline
@@ -1086,7 +1085,33 @@
   </div>
 
   <script>
+    // Ano automático no rodapé
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Vídeo toca quando a seção estiver visível e pausa quando sair
+    const video = document.getElementById("video-institucional");
+
+    if (video && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.muted = true; // obrigatório para autoplay funcionar na maioria dos navegadores
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                // se o navegador bloquear, apenas ignora
+              });
+            }
+          } else {
+            video.pause();
+          }
+        });
+      }, {
+        threshold: 0.5 // cerca de 50% do vídeo visível
+      });
+
+      observer.observe(video);
+    }
   </script>
 </body>
 </html>
